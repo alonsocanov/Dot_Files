@@ -10,14 +10,16 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
-# git
-alias gs="git status"
-alias g="git"
-alias gl="git log --all --graph --decorate --oneline"
-alias gb="git branch -vv"
-alias gd="git diff"
 
-# ls
+
+# if a file with aliases exists it will be run
+if [ -f ./.bash_aliases ]; then
+    . ./.bash_aliases
+fi
+
+
+
+
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
 alias ls="ls -lah"
