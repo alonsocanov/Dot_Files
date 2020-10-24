@@ -3,19 +3,19 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/.bin
 export SVN_EDITOR=vim
 
-# virtualenv and virtualenvwrapper
+#virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # git
 alias gs="git status"
 alias g="git"
-alias gl="git log --all --graph --decorate --onelin --oneline"
+alias gl="git log --all --graph --decorate --oneline"
 alias gb="git branch -vv"
 alias gd="git diff"
-
 
 # ls
 export CLICOLOR=1
