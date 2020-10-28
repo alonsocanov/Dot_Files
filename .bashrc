@@ -1,9 +1,11 @@
 # virtual  environment with virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
+if [ -d $HOME/.virtualenvs ]; then 
+	export WORKON_HOME=$HOME/.virtualenvs
+	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+	export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+	source /usr/local/bin/virtualenvwrapper.sh
+	export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
+fi
 
 # If file with aliases exists
 if [ -f .files/.bash_aliases ]; then
@@ -32,5 +34,7 @@ if [[ $? == 0 ]]; then
 else
     export PS1="\[\033[00m\]\W\\ \[\033[1;34m\]>\[\033[1;31m\]>\[\033[1;33m\]>\[\033[37m\] "
 fi
+
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
