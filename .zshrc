@@ -17,7 +17,7 @@ if [ -f ./.bash_aliases ]; then
     . ./.bash_aliases
 fi
 
-
+LANG="en_US.UTF-8"
 
 
 export CLICOLOR=1
