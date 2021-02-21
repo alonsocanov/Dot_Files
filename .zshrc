@@ -10,15 +10,13 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
-
 # if a file with aliases exists it will be run
-if [[ -f ./.bash_aliases ]]; then 
-     . ./.bash_aliases
+if [[ -f $HOME/.bash_aliases ]]; then 
+     . $HOME/.bash_aliases
 fi
 
 
 LANG="en_US.UTF-8"
-
 
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
