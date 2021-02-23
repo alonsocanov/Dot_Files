@@ -11,7 +11,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # if a file with aliases exists it will be run
-if [[ -f $HOME/.bash_aliases ]]; then 
+if [[ -f $HOME/.bash_aliases ]]; then
      . $HOME/.bash_aliases
 fi
 
@@ -32,6 +32,26 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 function create(){
-    cd $HOME/Developer
-    echo "Hello World";
+    # cd $HOME/Developer
+    DIR="$HOME/Developer/$1";
+    if [[ ! -d "$DIR" ]]; then
+
+        echo "Creating $DIR"
+        mkdir "$DIR"
+        echo "Changing directory"
+        cd "$DIR"
+        echo "Adding README.md"
+        touch "README.md"
+        echo "Creating .gitignore"
+        touch ".gitignore"
+        echo '*.DS_Store' >> .gitignore
+        echo '*__pycache__*' >> .gitignore
+        echo '*.vscode*' >> .gitignore
+        open https://github.com/new
+        git init
+        git add .
+        git commit -m "First Commit"
+        git push -u origin master
+    fi
+
 }
