@@ -8,8 +8,8 @@ if [ -d $HOME/.virtualenvs ]; then
 fi
 
 # If file with aliases exists
-if [ -f $HOME/.bash_aliases ]; then
-   . $HOME/.bash_aliases
+if [ -f $HOME/.aliases ]; then
+   . $HOME/.aliases
 fi
 
 # enable programmable completion features (you don't need to enable

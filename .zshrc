@@ -11,8 +11,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # if a file with aliases exists it will be run
-if [[ -f $HOME/.bash_aliases ]]; then
-     . $HOME/.bash_aliases
+if [[ -f $HOME/.aliases ]]; then
+     . $HOME/.aliases
 fi
 
 
@@ -29,7 +29,8 @@ export PS1="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blu
 # autosugestions
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+# brew branch visualization, installed with brew romkatv/gitstatus/gitstatus 
+# source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
 
 function create(){
     # cd $HOME/Developer
