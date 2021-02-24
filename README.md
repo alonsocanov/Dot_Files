@@ -12,7 +12,7 @@ Keep in mind that you are using either bash or zsh.
 ln -s path_to/.files/.zshrc .zshrc
 ln -s path_to/.files/.bashrc .bashrc
 ln -s path_to/.files/.vim .vim
-ln -s path_to/.files/.bash_aliases .bash_aliases
+ln -s path_to/.files/.aliases .aliases
 ```
 Here is an example form my home directory.  
 
@@ -20,5 +20,5 @@ Here is an example form my home directory.
 ln -s .files/.zshrc .zshrc
 ln -s .files/.bashrc .bashrc
 ln -s .files/.vim .vim
-ln -s .files/.bash_aliases .bash_aliases
+ln -s .files/.aliases .aliases
 ```
