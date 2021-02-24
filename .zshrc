@@ -35,7 +35,6 @@ function create(){
     # cd $HOME/Developer
     DIR="$HOME/Developer/$1";
     if [[ ! -d "$DIR" ]]; then
-
         echo "Creating $DIR"
         mkdir "$DIR"
         echo "Changing directory"
