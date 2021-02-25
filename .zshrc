@@ -34,10 +34,10 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
 
 
-
 # brew branch visualization, installed with brew romkatv/gitstatus/gitstatus
-# left prompt: directory followed by %/# (normal/root)
-# right prompt: git status
+# github https://github.com/romkatv/gitstatus
+# left prompt :PROMPT
+# right prompt: RPROMPT
 if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
     source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
     PROMPT=$MY_PROMPT
