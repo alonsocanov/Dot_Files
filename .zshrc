@@ -11,36 +11,51 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # current directory echo"${0:a:h}"
-DIR_PATH=.
+
 # check if link exixts
 if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
+    # if a file with aliases exists it will be run
+    if [[ -f $DIR_PATH/.aliases.sh ]]; then
+        . $DIR_PATH/.aliases.sh
+    else
+        echo "Could not find file to $DIR_PATH/.aliases.sh"
+    fi
 else
     echo "Could not find link to $HOME/.zshrc"
 fi
-
-# if a file with aliases exists it will be run
-if [[ -f $DIR_PATH/.aliases ]]; then
-     . $DIR_PATH/.aliases
-else
-    echo "Could not find file to $DIR_PATH/.aliases"
-fi
-
-
 
 LANG="en_US.UTF-8"
 
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
-# PS1 name on terminal
-export PS1="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+# PS1 name on terminal (needs to export)
+#export PS1=$MY_PROMPT
+MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
 
 
-# autosugestions
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # brew branch visualization, installed with brew romkatv/gitstatus/gitstatus
-# source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+# left prompt: directory followed by %/# (normal/root)
+# right prompt: git status
+if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
+    source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+    PROMPT=$MY_PROMPT
+    RPROMPT='$GITSTATUS_PROMPT'
+else
+    # PS1 name on terminal
+    export RPROMPT=$MY_PROMPT
+fi
+
+#syntax higliting
+if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+# autosugestions
+if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 
 function create(){
     # cd $HOME/Developer
