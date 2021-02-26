@@ -12,8 +12,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias l="ls -CF --color=auto"
     alias ls="ls -alh --color=auto"
 
-
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -25,10 +23,10 @@ else
 fi
 
 #ls
-alias ll="ls -alF"
-alias la="ls -A"
-alias l="ls -CF"
-alias ls="ls -alh"
+# alias ll="ls -alF"
+# alias la="ls -A"
+# alias l="ls -CF"
+# alias ls="ls -alh"
 # git
 alias gits="git status"
 alias gitl="git log --all --graph --decorate --oneline"
