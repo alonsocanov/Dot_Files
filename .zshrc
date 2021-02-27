@@ -3,16 +3,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/.bin
 export SVN_EDITOR=vim
 
-#virtualenv and virtualenvwrapper
-if [ -d $HOME/.virtualenvs ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-    source /usr/local/bin/virtualenvwrapper.sh
-    export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
-else
-    echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
-fi
+
 
 LANG="en_US.UTF-8"
 
@@ -36,25 +27,14 @@ else
     export RPROMPT=$MY_PROMPT
 fi
 
-#syntax higliting
-if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-    echo "Syntax hylighting not installed"
-fi
 
-# autosugestions
-if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-    echo "Autosuggestions not installed"
-fi
 
 # current directory echo"${0:a:h}"
 
 # check if link exixts
 if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
+
     # check if aliases.sh exists
     ALIASES_PATH=$DIR_PATH/.aliases.sh
     if [[ -f  $ALIASES_PATH ]]; then
@@ -62,12 +42,34 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     else
         echo "Could not find file to $ALIASES_PATH"
     fi
+
     # check if file utils.sh exists
     UTILS_PATH=$DIR_PATH/.utils.sh
     if [[ -f $UTILS_PATH ]]; then
         . $UTILS_PATH
     else
-        echo "Could not find file to $UTILS_PATH"
+        echo "Could not find file $UTILS_PATH"
+    fi
+
+    # check virtual environment path  virtualenv and virtualenvwerapper
+    VIRTUALENV_PATH=$DIR_PATH/.virtualenv.sh
+    if [[ -f $VIRTUALENV_PATH ]]; then
+        . $VIRTUALENV_PATH
+    else
+        echo "Could not find file $VIRTUALENV_PATH"
+    fi
+
+    # check if brew is installed (mac)
+    if [[ -d $(brew --prefix) ]]; then
+        # find file .brew_plugins.sh
+        BREW_PATH=$DIR_PATH/.brew_plugins.sh
+        if [[ -f $BREW_PATH ]]; then
+            . $BREW_PATH
+        else
+            echo "Could not find file $BREW_PATH"
+        fi
+    else
+        echo "Brew is not installed"
     fi
 
 else
