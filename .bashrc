@@ -6,7 +6,7 @@ if [ -d $HOME/.virtualenvs ]; then
 	source /usr/local/bin/virtualenvwrapper.sh
 	export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 else
-    echo "Virtualenv and virtualenvwerapper not installed"
+    echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
 fi
 
 
@@ -20,7 +20,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         echo "Could not find file to $DIR_PATH/.aliases.sh"
     fi
 else
-    echo "Could not find link to $HOME/.zshrc"
+    echo "Could not find symbolic link to $HOME/.bashrc"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -73,6 +73,7 @@ else
     export PS1="\[\033[00m\]\W\\ \[\033[1;34m\]>\[\033[1;31m\]>\[\033[1;33m\]>\[\033[37m\] "
 fi
 
+LANG="en_US.UTF-8"
 
 # jetson add-ons
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64

@@ -11,23 +11,7 @@ if [ -d $HOME/.virtualenvs ]; then
     source /usr/local/bin/virtualenvwrapper.sh
     export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 else
-    echo "Virtualenv and virtualenvwerapper not installed"
-fi
-
-
-# current directory echo"${0:a:h}"
-
-# check if link exixts
-if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
-    DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
-    # if a file with aliases exists it will be run
-    if [[ -f $DIR_PATH/.aliases.sh ]]; then
-        . $DIR_PATH/.aliases.sh
-    else
-        echo "Could not find file to $DIR_PATH/.aliases.sh"
-    fi
-else
-    echo "Could not find link to $HOME/.zshrc"
+    echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
 fi
 
 LANG="en_US.UTF-8"
@@ -55,35 +39,36 @@ fi
 #syntax higliting
 if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    echo "Syntax hylighting not installed"
 fi
+
 # autosugestions
 if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    echo "Autosuggestions not installed"
 fi
 
+# current directory echo"${0:a:h}"
 
-function create(){
-    # cd $HOME/Developer
-    DIR="$HOME/Developer/$1"
-    if [[ ! -d "$DIR" ]]; then
-
-        echo "Creating $DIR"
-        mkdir "$DIR"
-        echo "Changing directory"
-        cd "$DIR"
-        echo "Adding README.md"
-        touch "README.md"
-        echo "Creating .gitignore"
-        touch ".gitignore"
-        echo '*.DS_Store' >> .gitignore
-        echo '*__pycache__*' >> .gitignore
-        echo '*.vscode*' >> .gitignore
-        open https://github.com/new
-        git init
-        git add .
-        git commit -m "First Commit"
-        git push -u origin master
+# check if link exixts
+if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
+    DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
+    # check if aliases.sh exists
+    ALIASES_PATH=$DIR_PATH/.aliases.sh
+    if [[ -f  $ALIASES_PATH]]; then
+        . $ALIASES_PATH
     else
-        echo "This path already exists $DIR"
+        echo "Could not find file to $ALIASES_PATH"
     fi
-}
+    # check if file utils.sh exists
+    UTILS_PATH=$DIR_PATH/.utils.sh
+    if [[ -f $UTILS_PATH ]]; then
+        . $UTILS_PATH
+    else
+        echo "Could not find file to $UTILS_PATH"
+
+else
+    echo "Could not find link to $HOME/.zshrc"
+fi
