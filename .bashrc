@@ -12,8 +12,8 @@ fi
 
 
 # check if bashrc link exists
-if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
-    DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
+if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
+    DIR_PATH=$HOME/$(dirname $(readlink $HOME/.bashrc))
     # if a file with aliases exists it will be run
     if [[ -f $DIR_PATH/.aliases.sh ]]; then
         . $DIR_PATH/.aliases.sh
@@ -21,7 +21,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         echo "Could not find file to $DIR_PATH/.aliases.sh"
     fi
 else
-    echo "Could not find symbolic link to $HOME/.bashrc"
+    echo "Could not find symbolic link to $HOME/.aliases.sh"
 fi
 
 # enable programmable completion features (you don't need to enable
