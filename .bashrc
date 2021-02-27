@@ -1,4 +1,3 @@
-echo "hi"
 
 # virtual  environment with virtualenvwrapper
 if [ -d $HOME/.virtualenvs ]; then
