@@ -57,7 +57,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
     # check if aliases.sh exists
     ALIASES_PATH=$DIR_PATH/.aliases.sh
-    if [[ -f  $ALIASES_PATH]]; then
+    if [[ -f  $ALIASES_PATH ]]; then
         . $ALIASES_PATH
     else
         echo "Could not find file to $ALIASES_PATH"
@@ -68,6 +68,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         . $UTILS_PATH
     else
         echo "Could not find file to $UTILS_PATH"
+    fi
 
 else
     echo "Could not find link to $HOME/.zshrc"
