@@ -1,15 +1,26 @@
 # virtual  environment with virtualenvwrapper
-if [ -d $HOME/.virtualenvs ]; then 
+if [ -d $HOME/.virtualenvs ]; then
 	export WORKON_HOME=$HOME/.virtualenvs
 	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 	export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 	source /usr/local/bin/virtualenvwrapper.sh
 	export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
+else
+    echo "Virtualenv and virtualenvwerapper not installed"
 fi
 
-# If file with aliases exists
-if [ -f $HOME/.aliases ]; then
-   . $HOME/.aliases
+
+# check if bashrc link exists
+if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
+    DIR_PATH=$HOME/$(dirname $(readlink $HOME/.zshrc))
+    # if a file with aliases exists it will be run
+    if [[ -f $DIR_PATH/.aliases.sh ]]; then
+        . $DIR_PATH/.aliases.sh
+    else
+        echo "Could not find file to $DIR_PATH/.aliases.sh"
+    fi
+else
+    echo "Could not find link to $HOME/.zshrc"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -38,24 +49,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-#aliases
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-#Color
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -lah --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -80,8 +73,12 @@ else
     export PS1="\[\033[00m\]\W\\ \[\033[1;34m\]>\[\033[1;31m\]>\[\033[1;33m\]>\[\033[37m\] "
 fi
 
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 
+# jetson add-ons
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+# make torch work on jetson nano
+export OPENBLAS_CORETYPE=ARMV8
+# make nvida run on jetson nano
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
 
 # ROS
@@ -89,6 +86,3 @@ source /opt/ros/melodic/setup.bash
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_IP=192.168.1.155
 export LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/melodic/lib
-
-#make torch work on jetson nano
-export OPENBLAS_CORETYPE=ARMV8
