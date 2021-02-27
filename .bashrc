@@ -1,3 +1,5 @@
+echo "hi"
+
 # virtual  environment with virtualenvwrapper
 if [ -d $HOME/.virtualenvs ]; then
 	export WORKON_HOME=$HOME/.virtualenvs
