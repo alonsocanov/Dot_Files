@@ -12,21 +12,14 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
         echo "Could not find file to $DIR_PATH/.aliases.sh"
     fi
 
-    # check virtual environment path  virtualenv and virtualenvwerapper
-    VIRTUALENV_PATH=$DIR_PATH/.virtualenv.sh
-    if [[ -f $VIRTUALENV_PATH ]]; then
-        . $VIRTUALENV_PATH
+    # check utils path
+    UTILS_PATH=$DIR_PATH/.virtualenv.sh
+    if [[ -f $UTILS_PATH ]]; then
+        . $UTILS_PATH
     else
-        echo "Could not find file $VIRTUALENV_PATH"
+        echo "Could not find file $UTILS_PATH"
     fi
 
-    # check for ros install
-    ROS_PATH=$DIR_PATH/.ros.sh
-    if [[ -f $ROS_PATH ]]; then
-        . $ROS_PATH
-    else
-        echo "Could not find file $ROS_PATH"
-    fi
 else
     echo "Could not find symbolic link to $HOME/.bashrc.sh"
 fi

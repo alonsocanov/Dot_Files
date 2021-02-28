@@ -51,13 +51,6 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         echo "Could not find file $UTILS_PATH"
     fi
 
-    # check virtual environment path  virtualenv and virtualenvwerapper
-    VIRTUALENV_PATH=$DIR_PATH/.virtualenv.sh
-    if [[ -f $VIRTUALENV_PATH ]]; then
-        . $VIRTUALENV_PATH
-    else
-        echo "Could not find file $VIRTUALENV_PATH"
-    fi
 
     # check if brew is installed (mac)
     if [[ -d $(brew --prefix) ]]; then
@@ -70,6 +63,14 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         fi
     else
         echo "Brew is not installed"
+    fi
+
+    # check if file functions.sh exists
+    FUNCTIONS_PATH=$DIR_PATH/.functions.sh
+    if [[ -f $FUNCTIONS_PATH ]]; then
+        . $FUNCTIONS_PATH
+    else
+        echo "Could not find file $FUNCTIONS_PATH"
     fi
 
 else

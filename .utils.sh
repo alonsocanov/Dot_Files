@@ -1,24 +1,23 @@
-function create(){
-    # cd $HOME/Developer
-    DIR="$HOME/Developer/$1"
-    if [[ ! -d "$DIR" ]]; then
-        echo "Creating $DIR"
-        mkdir "$DIR"
-        echo "Changing directory"
-        cd "$DIR"
-        echo "Adding README.md"
-        touch "README.md"
-        echo "Creating .gitignore"
-        touch ".gitignore"
-        echo '*.DS_Store' >> .gitignore
-        echo '*__pycache__*' >> .gitignore
-        echo '*.vscode*' >> .gitignore
-        open https://github.com/new
-        git init
-        git add .
-        git commit -m "First Commit"
-        git push -u origin master
-    else
-        echo "This path already exists $DIR"
-    fi
-}
+# this sh file aims to handle virtual environments and install them it if needed
+
+#virtualenv and virtualenvwrapper
+if [ -d $HOME/.virtualenvs ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+    source /usr/local/bin/virtualenvwrapper.sh
+    export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
+else
+    echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
+fi
+
+
+# ROS
+if [ -f /opt/ros/melodic/setup.bash ]; then
+    source /opt/ros/melodic/setup.bash
+    export ROS_MASTER_URI=http://localhost:11311
+    export ROS_IP=192.168.1.155
+    export LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/melodic/lib
+elif [[ ! -f $HOME/.zshrc ] && [ -f $HOME/.bash ]]; then
+    echo "Could not find /opt/ros/melodic/setup.bash"
+fi
