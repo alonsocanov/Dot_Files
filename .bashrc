@@ -1,27 +1,34 @@
 
-# virtual  environment with virtualenvwrapper
-if [ -d $HOME/.virtualenvs ]; then
-	export WORKON_HOME=$HOME/.virtualenvs
-	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-	export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-	source /usr/local/bin/virtualenvwrapper.sh
-	export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
-else
-    echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
-fi
 
 
 # check if bashrc link exists
 if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
     DIR_PATH=$HOME/$(dirname $(readlink $HOME/.bashrc))
+
     # if a file with aliases exists it will be run
     if [[ -f $DIR_PATH/.aliases.sh ]]; then
         . $DIR_PATH/.aliases.sh
     else
         echo "Could not find file to $DIR_PATH/.aliases.sh"
     fi
+
+    # check virtual environment path  virtualenv and virtualenvwerapper
+    VIRTUALENV_PATH=$DIR_PATH/.virtualenv.sh
+    if [[ -f $VIRTUALENV_PATH ]]; then
+        . $VIRTUALENV_PATH
+    else
+        echo "Could not find file $VIRTUALENV_PATH"
+    fi
+
+    # check for ros install
+    ROS_PATH=$DIR_PATH/.ros.sh
+    if [[ -f $ROS_PATH ]]; then
+        . $ROS_PATH
+    else
+        echo "Could not find file $ROS_PATH"
+    fi
 else
-    echo "Could not find symbolic link to $HOME/.aliases.sh"
+    echo "Could not find symbolic link to $HOME/.bashrc.sh"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -82,9 +89,3 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export OPENBLAS_CORETYPE=ARMV8
 # make nvida run on jetson nano
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
-
-# ROS
-source /opt/ros/melodic/setup.bash
-export ROS_MASTER_URI=http://localhost:11311
-export ROS_IP=192.168.1.155
-export LD_LIBRARY_PATH=/usr/local/lib:/opt/ros/melodic/lib
