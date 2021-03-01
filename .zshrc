@@ -53,17 +53,17 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
 
 
     # check if brew is installed (mac)
-    if [[ -d $(brew --prefix) ]]; then
-        # find file .brew_plugins.sh
-        BREW_PATH=$DIR_PATH/.brew_plugins.sh
-        if [[ -f $BREW_PATH ]]; then
-            . $BREW_PATH
-        else
-            echo "Could not find file $BREW_PATH"
-        fi
-    else
-        echo "Brew is not installed"
-    fi
+    # if [[ -d $(brew --prefix) ]]; then
+    #     # find file .brew_plugins.sh
+    #     BREW_PATH=$DIR_PATH/.brew_plugins.sh
+    #     if [[ -f $BREW_PATH ]]; then
+    #         . $BREW_PATH
+    #     else
+    #         echo "Could not find file $BREW_PATH"
+    #     fi
+    # else
+    #     echo "Brew is not installed"
+    # fi
 
     # check if file functions.sh exists
     FUNCTIONS_PATH=$DIR_PATH/.functions.sh
