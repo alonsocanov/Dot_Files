@@ -1,5 +1,10 @@
 
-
+# virtual  environment with virtualenvwrapper
+#export WORKON_HOME=$HOME/.virtualenvs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+#source /usr/local/bin/virtualenvwrapper.sh
+#export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # check if bashrc link exists
 if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
@@ -13,7 +18,7 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
     fi
 
     # check utils path
-    UTILS_PATH=$DIR_PATH/.virtualenv.sh
+    UTILS_PATH=$DIR_PATH/.utils.sh
     if [[ -f $UTILS_PATH ]]; then
         . $UTILS_PATH
     else
