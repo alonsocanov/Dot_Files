@@ -1,6 +1,6 @@
 # this sh file aims to handle virtual environments and install them it if needed
 
-#virtualenv and virtualenvwrapper
+#virtualenv and virtualenvwrapper (mac)
 if [ -d $HOME/.virtualenvs ]; then
     export WORKON_HOME=$HOME/.virtualenvs
     export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
