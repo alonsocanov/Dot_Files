@@ -13,7 +13,7 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
     fi
 
     # check utils path
-    UTILS_PATH=$DIR_PATH/.virtualenv.sh
+    UTILS_PATH=$DIR_PATH/.utils.sh
     if [[ -f $UTILS_PATH ]]; then
         . $UTILS_PATH
     else
