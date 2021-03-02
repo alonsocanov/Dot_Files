@@ -27,8 +27,11 @@ fi
 # alias la="ls -A"
 # alias l="ls -CF"
 # alias ls="ls -alh"
+
 # git
 alias gits="git status"
 alias gitl="git log --all --graph --decorate --oneline"
 alias gitb="git branch -vv"
 alias gitd="git diff"
+alias gitc="git commit -m"
+
