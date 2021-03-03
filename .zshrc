@@ -30,7 +30,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     # check if file utils.sh exists
     UTILS_PATH=$DIR_PATH/.utils.sh
     if [[ -f $UTILS_PATH ]]; then
-        . $UTILS_PATH
+        . $UTILS_PATH MY_PROMPT
     else
         echo "Could not find file $UTILS_PATH"
     fi
