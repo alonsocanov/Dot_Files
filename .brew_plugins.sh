@@ -18,7 +18,7 @@ if [[ -d $(brew --prefix) ]]; then
     # left prompt :PROMPT
     # right prompt: RPROMPT
 
-    MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+    MY_PROMPT="%m: %(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
     # echo $1
     if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
         source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
