@@ -24,7 +24,7 @@ if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
     RPROMPT='$GITSTATUS_PROMPT'
 else
     # PS1 name on terminal
-    export RPROMPT=$MY_PROMPT
+    export PROMPT=$MY_PROMPT
 fi
 
 
