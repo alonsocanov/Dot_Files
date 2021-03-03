@@ -41,7 +41,7 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         # find file .brew_plugins.sh
         BREW_PATH=$DIR_PATH/.brew_plugins.sh
         if [[ -f $BREW_PATH ]]; then
-            . $BREW_PATH "$MY_PROMPT"
+            . $BREW_PATH
         else
             echo "Could not find file $BREW_PATH"
             PROMPT=$MY_PROMPT
