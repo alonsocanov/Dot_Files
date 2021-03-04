@@ -17,7 +17,7 @@ if [[ -d $(brew --prefix) ]]; then
     # github https://github.com/romkatv/gitstatus
     # left prompt :PROMPT
     # right prompt: RPROMPT
-    export TITLE='%n@%m'
+
     MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
     # echo $1
     if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
