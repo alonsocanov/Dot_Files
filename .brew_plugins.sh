@@ -17,17 +17,19 @@ if [[ -d $(brew --prefix) ]]; then
     # github https://github.com/romkatv/gitstatus
     # left prompt :PROMPT
     # right prompt: RPROMPT
-
-    MY_PROMPT="%m: %(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+    export TITLE='%n@%m'
+    MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
     # echo $1
     if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
         source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
         PROMPT=$MY_PROMPT
         # PROMPT=$1
         RPROMPT='$GITSTATUS_PROMPT'
+
     else
         # PS1 name on terminal
         export RPROMPT=$MY_PROMPT
+
     fi
 else
     echo "Brew not installed"
