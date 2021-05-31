@@ -74,6 +74,11 @@ fi
 
 LANG="en_US.UTF-8"
 
+# source ROS to enable
+if [[ -f /opt/ros/noetic/setup.bash]]; then
+	source /opt/ros/noetic/setup.bash
+fi
+
 # jetson add-ons
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 # make torch work on jetson nano
