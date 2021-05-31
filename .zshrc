@@ -59,6 +59,11 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     else
         echo "Could not find file $FUNCTIONS_PATH"
     fi
+    
+    # source ROS to enable
+    if [[ -f /opt/ros/noetic/setup.bash]]; then
+        source /opt/ros/noetic/setup.bash
+    fi
 
 else
     echo "Could not find link to $HOME/.zshrc"
