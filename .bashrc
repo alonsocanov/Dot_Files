@@ -75,7 +75,7 @@ fi
 LANG="en_US.UTF-8"
 
 # source ROS to enable
-if [[ -f /opt/ros/noetic/setup.bash]]; then
+if [[ -f /opt/ros/noetic/setup.bash ]]; then
 	source /opt/ros/noetic/setup.bash
 fi
 
