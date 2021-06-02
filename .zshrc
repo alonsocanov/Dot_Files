@@ -61,8 +61,10 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     fi
     
     # source ROS to enable
-    if [[ -f /opt/ros/noetic/setup.bash ]]; then
-        source /opt/ros/noetic/setup.bash
+    if [[ -f /opt/ros/noetic/setup.zsh ]]; then
+    	source /opt/ros/noetic/setup.zsh
+    else
+	echo "Could not find ROS Noetic dir"
     fi
 
 else
