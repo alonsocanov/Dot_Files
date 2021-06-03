@@ -67,6 +67,15 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
 	echo "Could not find ROS Noetic dir"
     fi
 
+    # virtualenv and virtualenvwraper
+    if [[ -d $HOME/.virtualenvs ]]; then
+    	export WORKON_HOME=$HOME/.virtualenvs
+    	VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+        . /usr/local/bin/virtualenvwrapper.sh
+    else
+	echo "No .virtualenvs directory"
+    fi
+
 else
     echo "Could not find link to $HOME/.zshrc"
 fi
