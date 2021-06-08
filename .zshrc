@@ -63,6 +63,15 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
     # source ROS to enable
     if [[ -f /opt/ros/noetic/setup.zsh ]]; then
     	source /opt/ros/noetic/setup.zsh
+	if [[ -f $HOME/catkin_ws/devel/setup.zsh ]]; then
+	   source $HOME/catkin_ws/devel/setup.zsh
+        else
+           echo "No file $HOME/catkin_ws/devel/setup.zsh"
+        fi$HOME/catkin_ws/devel/setup.zsh ]]; then
+	   source $HOME/catkin_ws/devel/setup.zsh
+        else
+           echo "No file $HOME/catkin_ws/devel/setup.zsh"
+        fi
     else
 	echo "Could not find ROS Noetic dir"
     fi
