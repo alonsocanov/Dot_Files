@@ -76,7 +76,14 @@ LANG="en_US.UTF-8"
 
 # source ROS to enable
 if [[ -f /opt/ros/noetic/setup.bash ]]; then
-	source /opt/ros/noetic/setup.bash
+    source /opt/ros/noetic/setup.bash
+    if [[ -f $HOME/catkin_ws/devel/setup.bash ]]; then
+        source $HOME/catkin_ws/devel/setup.bash
+    else
+        echo "ROS catkin_ws directory not found"
+    fi
+else
+    echo "ROS Noetic not installed"
 fi
 
 # jetson add-ons
@@ -85,3 +92,4 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export OPENBLAS_CORETYPE=ARMV8
 # make nvida run on jetson nano
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
+
