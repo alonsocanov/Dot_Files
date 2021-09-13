@@ -18,12 +18,20 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
         echo "Could not find file $UTILS_PATH"
     fi
 
-    # check .ssh path
+    # check .ssh path file
     SSH_PATH=$DIR_PATH/.ssh.sh
     if [[ -f $SSH_PATH ]]; then
         . $SSH_PATH
     else
         echo "Could not find file $SSH_PATH"
+    fi
+
+    # check .packages path file
+    PKG_PATH=$DIR_PATH/.packages.sh
+    if [[ -f $PKG_PATH ]]; then
+        . $PKG_PATH
+    else
+        echo "Could not find file $PKG_PATH"
     fi
 
 
