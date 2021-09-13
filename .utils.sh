@@ -1,11 +1,11 @@
 # this sh file aims to handle virtual environments and install them it if needed
 
 #virtualenv and virtualenvwrapper
-if ![ -d $HOME/.virtualenvs ]; then
+if [ ! -d $HOME/.virtualenvs ]; then
     echo "Virtualenv and virtualenvwerapper not installed, the following path: $HOME/.virtualenvs does not exist"
     sudo pip3 install virtualenv
     sudo pip3 install virtualenvwrapper
-    if ![ -d $HOME/.virtualenvs ]; then
+    if [ ! -d $HOME/.virtualenvs ]; then
         mkdir $HOME/.virtualenvs
     fi
 fi
@@ -18,10 +18,10 @@ export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # install usefull libraries if no installed
 # htop: memory usage
-if ![ dpkg -s htop ]; then
+if [ ! dpkg -s htop ]; then
     sudo apt-get install htop
 fi
-if  ![ dpkg -s nmap ]; then
+if  [ ! dpkg -s nmap ]; then
     sudo apt-get install nmap
 fi
 
