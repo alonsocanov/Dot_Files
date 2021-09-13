@@ -18,12 +18,12 @@ export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 # install usefull libraries if no installed
 # htop: memory usage
-if [ ! dpkg -s htop ]; then
-    sudo apt-get install htop
-fi
-if  [ ! dpkg -s nmap ]; then
-    sudo apt-get install nmap
-fi
+# if [ ! dpkg -s htop ]; then
+#     sudo apt-get install htop
+# fi
+# if  [ ! dpkg -s nmap ]; then
+#     sudo apt-get install nmap
+# fi
 
 
 
