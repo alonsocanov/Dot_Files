@@ -9,6 +9,10 @@ if [ -d $HOME/.virtualenvs ]; then
     export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 else
     echo "Virtualenv and virtualenvwerapper not installed in the following path: $HOME/.virtualenvs"
+    sudo pip3 install virtualenv
+    sudo pip3 install virtualenvwrapper
+    source .bashrc
+    
 fi
 
 
