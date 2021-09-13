@@ -1,0 +1,8 @@
+numpy
+scipy
+matplotlib
+pandas
+pygame
+jupyterlab
+notebook
+autopep8
