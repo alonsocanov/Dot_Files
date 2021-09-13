@@ -26,7 +26,7 @@ if  ![ dpkg -s nmap ]; then
 fi
 
 
-
+eval `ssh-agent -s`
 
 
 

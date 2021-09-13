@@ -18,6 +18,15 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
         echo "Could not find file $UTILS_PATH"
     fi
 
+    # check .ssh path
+    SSH_PATH=$DIR_PATH/.ssh.sh
+    if [[ -f $SSH_PATH ]]; then
+        . $SSH_PATH
+    else
+        echo "Could not find file $SSH_PATH"
+    fi
+
+
 else
     echo "Could not find symbolic link to $HOME/.bashrc.sh"
 fi
@@ -92,4 +101,3 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export OPENBLAS_CORETYPE=ARMV8
 # make nvida run on jetson nano
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
-
