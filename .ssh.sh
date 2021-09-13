@@ -1,5 +1,6 @@
 eval `ssh-agent -s`
 
-if [ -f $HOME/.ssh/github]; then
-    ssh-add github
+SSH_GIT=$HOME/.ssh/github
+if [ -f SSH_GIT]; then
+    ssh-add SSH_GIT
 fi
