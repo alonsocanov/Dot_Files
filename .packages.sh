@@ -1,11 +1,10 @@
-LIST=("vim" "htop" "expect" "nmap")
-DIR_PATH=$HOME/$(dirname $(readlink $HOME/.bashrc))
-apt -qq LIST | grep -v "installed" | awk -F/ '{print $1}' > DIR_PATH/packages.txt
-packages=$(cat DIR_PATH/packages.txt)
-grep -q '[^[:space:]]' < DIR_PATH/packages.txt
-EMPTY_FILE=$?
-if [[ $EMPTY_FILE -eq 1 ]]; then
-    echo "Nothing to do"
-else
-    apt-get  install -y $packages
-fi
+LIST=("vim htop tmux fail2ban")
+for package in $LIST
+do
+   dpkg -s $package &> /dev/null 
+   if [ $? -ne 0 ]; then
+       echo "$package is not installed installing"
+       sudo apt install -y $package
+   fi
+done
+
