@@ -16,18 +16,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
 
 
-# install usefull libraries if no installed
-# htop: memory usage
-# if [ ! dpkg -s htop ]; then
-#     sudo apt-get install htop
-# fi
-# if  [ ! dpkg -s nmap ]; then
-#     sudo apt-get install nmap
-# fi
-
-
-
-
 
 # ROS
 ROS_PATH=/opt/ros/melodic/setup.bash

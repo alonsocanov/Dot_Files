@@ -26,14 +26,6 @@ if [[ -L $HOME/.bashrc  &&  -e $HOME/.bashrc ]]; then
         echo "Could not find file $SSH_PATH"
     fi
 
-    # check .packages path file
-    PKG_PATH=$DIR_PATH/.packages.sh
-    if [[ -f $PKG_PATH ]]; then
-        . $PKG_PATH
-    else
-        echo "Could not find file $PKG_PATH"
-    fi
-
 
 else
     echo "Could not find symbolic link to $HOME/.bashrc.sh"
