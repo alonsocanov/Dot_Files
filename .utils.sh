@@ -3,10 +3,12 @@
 #virtualenv and virtualenvwrapper
 if [ ! -d $HOME/.virtualenvs ]; then
     echo "Virtualenv and virtualenvwerapper not installed, the following path: $HOME/.virtualenvs does not exist"
+    sudo apt install python3-pip
     sudo pip3 install virtualenv
     sudo pip3 install virtualenvwrapper
     if [ ! -d $HOME/.virtualenvs ]; then
         mkdir $HOME/.virtualenvs
+	virtualenv py3
     fi
 fi
 export WORKON_HOME=$HOME/.virtualenvs
