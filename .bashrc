@@ -101,3 +101,4 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export OPENBLAS_CORETYPE=ARMV8
 # make nvida run on jetson nano
 export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
+export PATH=/home/nvidia/cmake-3.13.0/bin/:$PATH
