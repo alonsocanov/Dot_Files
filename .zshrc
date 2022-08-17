@@ -62,3 +62,8 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
 else
     echo "Could not find link to $HOME/.zshrc"
 fi
+
+#Xterm avaliability
+xhost +
+# clear terminal
+clear
