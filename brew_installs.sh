@@ -1,0 +1,11 @@
+brew install htop
+brew install python
+brew install tesseract
+brew install popper
+brew install tesseract-lang
+brew install git
+brew install subversion
+brew install composer
+brew install cmake
+brew install gcc
+brew install tmux

@@ -31,6 +31,7 @@ if [[ -d $(brew --prefix) ]]; then
         export RPROMPT=$MY_PROMPT
 
     fi
+
 else
     echo "Brew not installed"
 fi
