@@ -1,11 +1,7 @@
-brew install htop
-brew install python
-brew install tesseract
-brew install popper
-brew install tesseract-lang
-brew install git
-brew install subversion
-brew install composer
-brew install cmake
-brew install gcc
-brew install tmux
+if [[ ! -d $(brew --prefix) ]]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew update
+fi
+if [[ -d $(brew --prefix) ]]; then
+    brew install $(<brew_packages.txt)
+fi
