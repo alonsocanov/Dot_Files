@@ -19,3 +19,4 @@ zsh-syntax-highlighting
 wget
 boost
 ffmpeg
+romkatv/gitstatus/gitstatus
