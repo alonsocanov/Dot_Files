@@ -65,5 +65,11 @@ fi
 
 #Xterm avaliability
 xhost +
+#opencv for c++ find packages
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+
+
 # clear terminal
 clear
