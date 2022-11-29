@@ -64,12 +64,19 @@ else
 fi
 
 #Xterm avaliability
-xhost +
+#----------  xhost +
 #opencv for c++ find packages
 #export PATH="/usr/local/opt/openjdk/bin:$PATH"
 #export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
-
+#opencv find path for vscodei
+OPENCV_PATH=/usr/local/opt/opencv@4/lib/pkgconfig
+if [[ -d $OPENCV_PATH ]]; then
+    export PKG_CONFIG_PATH=$OPENCV_PATH
+    export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+else
+    echo "Directory $OPENCV_PATH for opencv does not exist"
+fi
 
 # clear terminal
-clear
+#clear
