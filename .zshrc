@@ -12,7 +12,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 # PS1 name on terminal (needs to export)
 #export PS1=$MY_PROMPT
 export TITLE='%n@%m'
-MY_PROMPT="%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+MY_PROMPT="%n@%m:%(!.%F{white}.%F{orange})%~%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
 
 # current directory echo"${0:a:h}"
 
