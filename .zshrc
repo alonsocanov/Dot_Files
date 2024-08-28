@@ -28,14 +28,6 @@ if [[ -L $HOME/.zshrc  &&  -e $HOME/.zshrc ]]; then
         echo "Could not find file to $ALIASES_PATH"
     fi
 
-    # check if file utils.sh exists
-    UTILS_PATH=$DIR_PATH/.utils.sh
-    if [[ -f $UTILS_PATH ]]; then
-        . $UTILS_PATH
-    else
-        echo "Could not find file $UTILS_PATH"
-    fi
-
 
     # check if brew is installed (mac)
     if [[ -d $(brew --prefix) ]]; then
