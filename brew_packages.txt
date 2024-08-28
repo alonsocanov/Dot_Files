@@ -26,3 +26,7 @@ php@7.4
 mysql
 docker
 pdf2image
+# web page github local
+chruby
+ruby-install
+xz

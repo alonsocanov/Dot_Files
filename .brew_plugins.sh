@@ -52,8 +52,8 @@ if [[ -d $(brew --prefix) ]]; then
     export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
     export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
 
-export LDFLAGS="-L/opt/homebrew/opt/util-linux/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/util-linux/include"
+    export LDFLAGS="-L/opt/homebrew/opt/util-linux/lib"
+    export CPPFLAGS="-I/opt/homebrew/opt/util-linux/include"
 
     #virtualenv and virtualenvwrapper (mac)
     if [ -d $HOME/.virtualenvs ]; then
