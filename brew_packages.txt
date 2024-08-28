@@ -20,3 +20,9 @@ wget
 boost
 ffmpeg
 romkatv/gitstatus/gitstatus
+php
+php@7.4
+--cask xquartz
+mysql
+docker
+pdf2image
