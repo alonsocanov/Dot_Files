@@ -2,7 +2,7 @@
 
 
 # enable color support of ls and also add handy aliases
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+# test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls="ls -alh --color=auto"
 alias ll="ls -alF --color=auto"
 alias la="ls -A --color=auto"
