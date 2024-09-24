@@ -1,3 +1,4 @@
+zsh
 htop
 python
 tesseract
@@ -16,6 +17,7 @@ xquartz
 tcl-tk
 zsh-autosuggestions
 zsh-syntax-highlighting
+zsh-completions
 wget
 boost
 ffmpeg

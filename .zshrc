@@ -7,12 +7,12 @@ export SVN_EDITOR=vim
 
 LANG="en_US.UTF-8"
 
-export CLICOLOR=1
-export LSCOLORS=exfxcxdxbxegedabagacad
-# PS1 name on terminal (needs to export)
-#export PS1=$MY_PROMPT
-export TITLE='%n@%m'
-MY_PROMPT="%n@%m:%(!.%F{white}.%F{orange})%~%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+# export CLICOLOR=1
+# export LSCOLORS=exfxcxdxbxegedabagacad
+# # PS1 name on terminal (needs to export)
+# #export PS1=$MY_PROMPT
+# export TITLE='%n@%m'
+# MY_PROMPT="%n@%m:%(!.%F{white}.%F{orange})%~%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
 
 # current directory echo"${0:a:h}"
 

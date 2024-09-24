@@ -2,6 +2,7 @@ if [[ -d $(brew --prefix) ]]; then
     #syntax higliting
     if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
         source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
     else
         echo "Syntax hylighting not installed"
     fi
@@ -13,24 +14,31 @@ if [[ -d $(brew --prefix) ]]; then
         echo "Autosuggestions not installed"
     fi
 
+    # completions
+    if [[ -f $(brew --prefix)/share/zsh-completions/zsh-completions.zsh ]]; then
+        source $(brew --prefix)/share/zsh-completions/zsh-completions.zsh
+    else
+        echo "Completions not installed"
+    fi
+
     # brew branch visualization, installed with brew romkatv/gitstatus/gitstatus
     # github https://github.com/romkatv/gitstatus
     # left prompt :PROMPT
     # right prompt: RPROMPT
 
-    MY_PROMPT="%n@%m:%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
-    # echo $1
-    if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
-        source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
-        PROMPT=$MY_PROMPT
-        # PROMPT=$1
-        RPROMPT='$GITSTATUS_PROMPT'
+    # MY_PROMPT="%n@%m:%(!.%F{white}.%F{orange})%1//%f%B%(0?.%F{green}-%f.%F{red}!%f)%F{blue}>%f%F{red}>%f%F{yellow}>%f%b "
+    # # echo $1
+    # if [[ -f $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh ]]; then
+    #     source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+    #     PROMPT=$MY_PROMPT
+    #     # PROMPT=$1
+    #     RPROMPT='$GITSTATUS_PROMPT'
 
-    else
-        # PS1 name on terminal
-        export RPROMPT=$MY_PROMPT
+    # else
+    #     # PS1 name on terminal
+    #     export RPROMPT=$MY_PROMPT
 
-    fi
+    # fi
 
     #brew ruby-install
     source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
