@@ -14,12 +14,12 @@ if [[ -d $(brew --prefix) ]]; then
         echo "Autosuggestions not installed"
     fi
 
-    # completions
-    if [[ -f $(brew --prefix)/share/zsh-completions/zsh-completions.zsh ]]; then
-        source $(brew --prefix)/share/zsh-completions/zsh-completions.zsh
-    else
-        echo "Completions not installed"
-    fi
+    # # completions
+    # if [[ -f $(brew --prefix)/share/zsh-completions/zsh-completions.zsh ]]; then
+    #     source $(brew --prefix)/share/zsh-completions/zsh-completions.zsh
+    # else
+    #     echo "Completions not installed"
+    # fi
 
     # brew branch visualization, installed with brew romkatv/gitstatus/gitstatus
     # github https://github.com/romkatv/gitstatus
@@ -39,6 +39,7 @@ if [[ -d $(brew --prefix) ]]; then
     #     export RPROMPT=$MY_PROMPT
 
     # fi
+
 
     #brew ruby-install
     source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
