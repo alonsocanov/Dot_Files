@@ -221,7 +221,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=074
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=027
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=254
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -651,7 +651,7 @@
 
   # Python version from asdf.
   typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_PYTHON_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_PYTHON_BACKGROUND=2
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -755,14 +755,14 @@
   typeset -g POWERLEVEL9K_RANGER_BACKGROUND=0
   # Custom icon.
   typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='▲'
-  
+
   ####################[ yazi: yazi shell (https://github.com/sxyazi/yazi) ]#####################
   # Yazi shell color.
   typeset -g POWERLEVEL9K_YAZI_FOREGROUND=3
   typeset -g POWERLEVEL9K_YAZI_BACKGROUND=0
   # Custom icon.
   typeset -g POWERLEVEL9K_YAZI_VISUAL_IDENTIFIER_EXPANSION='▲'
-  
+
   ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
   # Nnn shell color.
   typeset -g POWERLEVEL9K_NNN_FOREGROUND=0
@@ -999,7 +999,7 @@
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=0
-  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=4
+  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=3
   # Don't show Python version next to the virtual environment name.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   # If set to "false", won't show virtualenv if pyenv is already shown.
